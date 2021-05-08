@@ -1,0 +1,64 @@
+@import 'variables';
+
+@mixin user-photo($width: toRem(56px), $height: toRem(56px)) {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    img {
+        width: $width;
+        height: $height;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+        border: {
+            color: white;
+            width: 2px;
+            style: solid;
+        }
+    }
+    &--enabled {
+        border-radius: 50%;
+        background: $main-gradient; /*How to extend close from enabled*/
+    }
+    &--close {
+        border-radius: 50%;
+        background: $insta-green;
+    }
+}
+
+@mixin regular-text($fontSize: toRem(14px), $fontWeight: 600, $color: $insta-black) {
+    font-family: $main-font;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $color;
+}
+
+@mixin reset-button {
+    &,
+    &:active,
+    &:hover,
+    &:active {
+        background: none;
+        outline: none;
+        border: none;
+    }
+    
+}
+
+@mixin generic-flex($direction: row) {
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin regular-anchor($color: $insta-blue) {
+    @include regular-text(toRem(12px), 600, $color);
+    text-decoration: none;
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

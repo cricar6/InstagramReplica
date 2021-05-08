@@ -1,5 +1,38 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+.main-anchor {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0095F6;
+  text-decoration: none;
+}
+
+.main-anchor, .main-anchor:active, .main-anchor:hover, .main-anchor:active {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.main-anchor--black {
+  color: #262626;
+}
+
+.link-anchor {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #c7c7c7;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.story-toogler {
+  list-style: none;
+}
+
 .story-toogler__user {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,6 +100,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -102,8 +138,8 @@
 .friend-stories-container__nav .iconify {
   background: white;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
   padding: 3px;
   -webkit-box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13);
@@ -119,6 +155,189 @@
 
 .friend-stories-container__nav--right {
   right: 0;
+}
+
+.user-account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.user-account__photo {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2px;
+}
+
+.user-account__photo img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.user-account__photo--enabled {
+  border-radius: 50%;
+  background: linear-gradient(217.87deg, #C72E90 0%, #FA9B4A 100%);
+  /*How to extend close from enabled*/
+}
+
+.user-account__photo--close {
+  border-radius: 50%;
+  background: #6ED63A;
+}
+
+.user-account__context {
+  margin-left: 0.625rem;
+  padding-right: 1.25rem;
+  max-width: 15.625rem;
+}
+
+.user-account__context > *:first-child {
+  margin-bottom: 0.3125rem;
+}
+
+.user-account__nick {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #262626;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-account__name {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #8e8e8e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 9.375rem;
+}
+
+.user-account__followers {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #8e8e8e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-account-related-info > .user-account-related-info__user-container {
+  margin-bottom: 20px;
+}
+
+.user-account-related-info__user-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-account-related-info__title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.user-account-related-info__title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #262626;
+  color: #8e8e8e;
+}
+
+.user-account-related-info__user-wrap .user-account {
+  padding: 0.5rem 0;
+}
+
+.user-account-related-info__user-wrap .user-account__nick {
+  margin-bottom: 0;
+}
+
+.user-account-related-info__user-wrap .user-account__photo img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.footer__link-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+
+.footer__link {
+  list-style: none;
+}
+
+.footer__link:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.3125rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #262626;
+  color: #c7c7c7;
+}
+
+.footer__copyright {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #c7c7c7;
+  font-style: normal;
 }
 
 * {

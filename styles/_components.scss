@@ -1,61 +1,28 @@
-@import 'variables';
+@import 'variables', 'mixins';
 
-@mixin user-photo($width: toRem(56px), $height: toRem(56px)) {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    padding: 2px;
-    img {
-        width: $width;
-        height: $height;
-        border-radius: 50%;
-        position: relative;
-        z-index: 2;
-        border: {
-            color: white;
-            width: 2px;
-            style: solid;
-        }
-    }
-    &--enabled {
-        border-radius: 50%;
-        background: $main-gradient; /*How to extend close from enabled*/
-    }
-    &--close {
-        border-radius: 50%;
-        background: $insta-green;
+.main-anchor {
+    @include reset-button();
+    @include regular-anchor();
+    &--black {
+        color: $insta-black;
     }
 }
 
-@mixin regular-text($fontSize: toRem(14px), $fontWeight: 600) {
-    font-family: $main-font;
-    font-size: $fontSize;
-    font-weight: $fontWeight;
+.link-anchor {
+    @include regular-anchor($insta-light-gray);
+    font-weight: 400;
 }
 
-@mixin reset-button {
-    &,
-    &:active,
-    &:hover,
-    &:active {
-        background: none;
-        outline: none;
-        border: none;
-    }
-    
-}
 .story-toogler {
-   &__user {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    list-style: none;
+    &__user {
+        @include generic-flex(column);
         cursor: pointer;
         &-photo {
                 @include user-photo();
         }
         &-name {
                 @include regular-text(toRem(12px), 400);
-                color: $insta-black;
         }
    }
 }
@@ -70,8 +37,7 @@
         style: solid;
     }
     &__wrap {
-        display: flex;
-        flex-direction: row;
+        @include generic-flex();
         overflow: hidden;
         > *:not(:last-child) {
             margin-right: toRem(10px);
@@ -92,8 +58,8 @@
         .iconify {
             background: white;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
+            width: toRem(25px);
+            height: toRem(25px);
             padding: 3px;
             box-shadow: $shadow-level-1;
 
@@ -107,5 +73,89 @@
         &--right {
             right: 0 ;
         }
+    }
+}
+
+.user-account {
+    @include generic-flex();
+    &__photo {
+        @include user-photo();
+    }
+    &__context {
+        margin-left: toRem(10px);
+        padding-right: toRem(20px);
+        max-width: toRem(250px);
+        & > *:first-child {
+            margin-bottom: toRem(5px);
+        }
+    }
+    &__nick {
+        @include regular-text();
+        @include ellipsis();
+    }
+    &__name {
+        @include regular-text(toRem(14px), 400, $insta-gray);
+        @include ellipsis();
+        max-width: toRem(150px);
+    }
+    &__followers {
+        @include regular-text(toRem(12px), 400, $insta-gray);
+        @include ellipsis();
+    }
+}
+
+.user-account-related-info {
+    & > &__user-container {
+        margin-bottom: 20px;
+    }
+    &__user-container {
+        @include generic-flex();
+        justify-content: space-between;
+    }
+    &__title-container {
+        @include generic-flex();
+        justify-content: space-between;
+        margin-bottom: toRem(8px)
+    }
+    &__title {
+        @include regular-text();
+        color: $insta-gray;
+    }
+    &__user-wrap {
+        .user-account {
+            padding: toRem(8px) 0;
+            &__nick {
+                margin-bottom: 0;
+            }
+            &__photo {
+                img {
+                    width: toRem(32px);
+                    height: toRem(32px);
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    &__link-wrap {
+        @include generic-flex();
+        flex-wrap: wrap;
+        margin: toRem(20px) 0;
+    }
+    &__link {
+        list-style: none;
+        &:not(:last-child) {
+            &::after {
+                content: '·';
+                margin: 0 toRem(5px);
+                @include regular-text();
+                color: $insta-light-gray;
+            }
+        }
+    }
+    &__copyright {
+        @include regular-text(toRem(12px), 400, $insta-light-gray);
+        font-style: normal;
     }
 }
