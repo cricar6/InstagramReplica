@@ -9,3 +9,33 @@
 body {
     background: $insta-background-gray;
 }
+
+.outer-wrapper {
+    max-width: toRem(950px);
+    margin: 0 auto;
+    padding-top: $main-padding-top;
+    position: relative;
+}
+
+.feed {
+    max-width: toRem(600px);
+
+    .friend-stories-container {
+        margin-bottom: toRem(40px);
+    }
+
+    .post {
+        margin-bottom: toRem(20px);
+    }
+}
+
+.user-account-related-info {
+
+    position: fixed;
+    top: 0;
+    right: toRem(100px);
+    max-width: toRem(300px);
+    padding-top: $main-padding-top;
+
+}
+

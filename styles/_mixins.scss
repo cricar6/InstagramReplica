@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'variables', 'colors';
 
 @mixin user-photo($width: toRem(56px), $height: toRem(56px)) {
     position: relative;
@@ -34,6 +34,22 @@
     color: $color;
 }
 
+@mixin regular-input ($fontSize: toRem(14px), $fontWeight: 400, $color: $insta-black) {
+    @include regular-text($fontSize, $fontWeight, $color);
+    border: 0;
+    &,
+    &:active,
+    &:hover,
+    &:active,
+    &:focus {
+        border: 0;
+        outline: none;
+        background: none;
+    }
+    &::placeholder {
+        @include regular-text($fontSize, $fontWeight, $insta-gray)
+    }
+}
 @mixin reset-button {
     &,
     &:active,
@@ -52,8 +68,8 @@
     flex-direction: $direction;
 }
 
-@mixin regular-anchor($color: $insta-blue) {
-    @include regular-text(toRem(12px), 600, $color);
+@mixin regular-anchor($color: $insta-blue, $fontSize: toRem(12px)) {
+    @include regular-text($fontSize, 600, $color);
     text-decoration: none;
 }
 
@@ -61,4 +77,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+@mixin have-profile-popup {
+    &:hover {
+        text-decoration: underline;
+        .profile-popup {
+            display: block;
+        }
+    }
+}
+@mixin button-with-icon($color: $insta-black, $width: toRem(24px), $height: toRem(24px)) {
+    @include reset-button();
+    @include generic-flex();
+    width: toRem(40px);
+    height: toRem(40px);
+    justify-content: center;
+    cursor: pointer;
+    .iconify {
+        width: $width;
+        height: $height;
+    }
 }

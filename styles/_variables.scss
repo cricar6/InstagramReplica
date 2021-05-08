@@ -7,3 +7,8 @@
 
 $main-font: 'IBM Plex Sans', sans-serif;
 $shadow-level-1: 0px 4px 7px rgba(0, 0, 0, 0.13);
+$regular-transition: .3s ease all;
+$fast-transition: .1s ease all;
+$post-sides-padding: 0 toRem(16px);
+$post-bottom-margin: toRem(8px);
+$main-padding-top: toRem(100px);

@@ -13,6 +13,133 @@
     font-weight: 400;
 }
 
+.icon-button {
+    @include button-with-icon($insta-black)
+}
+
+.bordered-button {
+    @include regular-text(14px, 600, $insta-black);
+    padding: toRem(5px);
+    cursor: pointer;
+    border-radius: toRem(5px);
+    border: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    }
+    &,
+    &:active,
+    &:hover,
+    &:active {
+        background: none;
+        outline: none;
+    }
+}
+
+.header {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: toRem(10px) 0;
+    border-bottom: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    }
+    .logo {
+        width: toRem(110px);
+        transform: translateY(toRem(5px));
+    }
+    &__wrapper {
+        @include generic-flex;
+        justify-content: space-between;
+        max-width: toRem(950px);
+        margin: 0 auto;
+        
+    }
+
+    &__actions {
+        @include generic-flex;
+        .icon-button {
+            width: toRem(22px);
+            height: toRem(22px);
+            &:not(:last-child) {
+                margin-right: toRem(18px)
+            }
+            .iconify {
+                path,
+                circle,
+                rect {
+                    fill: $insta-black;
+                }
+            }
+        }
+        &-profile {
+            @include user-photo(toRem(30px), toRem(30px));
+            @include reset-button;
+        }
+    }
+}
+
+.search-bar {
+    @include generic-flex;
+    background: $insta-background-gray;
+    width: toRem(215px);
+    padding: toRem(5px) toRem(10px);
+    border-radius: toRem(5px);
+    justify-content: center;
+    cursor: text;
+    border: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    }
+    &__icon {
+        width: toRem(11px);
+        height: toRem(11px);
+        margin-right: toRem(5px);
+        path,
+        circle {
+            stroke: $insta-gray;
+        }
+    }
+    &__input {
+        @include regular-input();
+        width: 50px;
+        &:focus + button {
+            display: block;
+        }
+        &:focus {
+            width: unset;
+        }
+    }
+    &__quit {
+        display: none;
+        border-radius: 50%;
+        background: $insta-medium-gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .iconify {
+            path {
+                stroke: $insta-background-gray;
+                fill: $insta-background-gray;
+            }
+        }
+        &,
+        &:active,
+        &:hover,
+        &:active {
+            outline: none;
+            border: none;
+        }
+    }
+    
+}
+
 .story-toogler {
     list-style: none;
     &__user {
@@ -137,6 +264,207 @@
     }
 }
 
+.post {
+    border: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    };
+    background: white;
+    &__header {
+        @include generic-flex();
+        justify-content: space-between;
+        padding: $post-bottom-margin;
+    
+        border-bottom: {
+            width: 1px;
+            color: $insta-medium-gray;
+            style: solid;
+        }
+        .icon-button {
+            .iconify {
+                width: toRem(20px);
+                height: toRem(20px)
+            }
+        }
+    }
+    &__user {
+        @include generic-flex();
+        &-photo {
+            @include user-photo(toRem(32px), toRem(32px));
+        }
+        &-name {
+            @include regular-anchor($insta-black, toRem(14px));
+            @include have-profile-popup();
+            position: relative;
+        }
+    }
+    &__content {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__actions {
+        @include generic-flex;
+        justify-content: space-between;
+        margin-top: toRem(10px);
+        &-container {
+            @include generic-flex;
+            padding: $post-sides-padding;
+        }
+    }
+    &__text {
+        @include regular-text(toRem(14px), 400, $insta-black);
+        a {
+            @include regular-anchor($insta-black, toRem(14px));
+        }
+    }
+    &__likes {
+        padding: $post-sides-padding;
+        margin-bottom: $post-bottom-margin;
+    }
+    &__description {
+        padding: $post-sides-padding;
+        margin-bottom: $post-bottom-margin;
+    }
+    
+    &__comments {
+        padding: $post-sides-padding;
+        margin-bottom: $post-bottom-margin;
+        &-button {
+            @include reset-button;
+            @include regular-text(toRem(14px), 400, $insta-gray);
+            cursor: pointer;
+            margin-bottom: $post-bottom-margin;
+        }
+        &-item {
+            @include generic-flex;
+            list-style: none;
+            justify-content: space-between;
+            margin-bottom: $post-bottom-margin;
+        }
+        &-actions {
+            .icon-button {
+                width: toRem(30px);
+                height: 100%;
+                .iconify {
+                    width: toRem(12px);
+                    height: toRem(12px);
+                }
+            }
+        }
+    }
+
+    &__time {
+        padding: $post-sides-padding;
+        margin-bottom: $post-bottom-margin;
+        &-text {
+            @include regular-text(toRem(10px), 400, $insta-gray);
+            text-transform: uppercase;
+            letter-spacing: toRem(1px);    
+        }
+    }
+    &__form {
+        @include generic-flex();
+        border-top: {
+            width: 1px;
+            color: $insta-medium-gray;
+            style: solid;
+        }
+        justify-content: space-between;
+        padding: $post-sides-padding;
+        padding-top: $post-bottom-margin;
+        padding-bottom: $post-bottom-margin;
+        margin-top: $post-bottom-margin;
+        &-comment {
+            @include regular-input(toRem(16px));
+            padding: $post-sides-padding;
+            flex-grow: 1;
+        }
+        &-submit {
+            @include reset-button;
+            @include regular-text(toRem(14px), 600, $insta-blue);
+        }
+    }
+}
+
+.profile-popup {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: toRem(390px);
+    transform: translateY(100%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
+    border-radius: 15px;
+    background: white;
+    display: none;
+    z-index: 99;
+    border: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    }
+    &__header {
+        padding: $post-bottom-margin;
+        border-bottom: {
+            width: 1px;
+            color: $insta-medium-gray;
+            style: solid;
+        }
+    }
+    &__stats {
+        @include generic-flex;
+        justify-content: space-between;
+        &-container {
+            @include generic-flex(column);
+            justify-content: center;
+            list-style: none;
+            height: toRem(70px);
+            flex: 1 0 toRem(110px);
+        }
+        &-text {
+            @include regular-text(toRem(14px), 600, $insta-black);
+        }
+        &-title {
+            @include regular-text(toRem(14px), 400, $insta-gray);
+            text-transform: lowercase;
+        }
+    }
+    &__content {
+        @include generic-flex;
+        &-item {
+            list-style: none;
+            flex-grow: 1;
+            img {
+                width: 100%;
+                object-fit: cover;
+                &:hover {
+                    filter: opacity(70%)
+                }
+            }
+        }
+    }
+    &__actions {
+        @include generic-flex;
+        padding: toRem(12px);
+        .bordered-button {
+            flex-grow: 1;
+            &:not(:last-child) {
+                margin-right: toRem(10px)
+            }
+        }
+    }
+}
 .footer {
     &__link-wrap {
         @include generic-flex();
