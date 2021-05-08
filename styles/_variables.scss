@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+@function toRem($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+$main-font: 'IBM Plex Sans', sans-serif;
+$shadow-level-1: 0px 4px 7px rgba(0, 0, 0, 0.13);

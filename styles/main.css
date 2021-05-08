@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+.story-toogler__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.story-toogler__user-photo {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2px;
+}
+
+.story-toogler__user-photo img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.story-toogler__user-photo--enabled {
+  border-radius: 50%;
+  background: linear-gradient(217.87deg, #C72E90 0%, #FA9B4A 100%);
+  /*How to extend close from enabled*/
+}
+
+.story-toogler__user-photo--close {
+  border-radius: 50%;
+  background: #6ED63A;
+}
+
+.story-toogler__user-name {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #262626;
+}
+
+.friend-stories-container {
+  padding: 1rem 0;
+  background: white;
+  position: relative;
+  border-width: 1px;
+  border-color: #dbdbdb;
+  border-style: solid;
+}
+
+.friend-stories-container__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+}
+
+.friend-stories-container__wrap > *:not(:last-child) {
+  margin-right: 0.625rem;
+}
+
+.friend-stories-container__wrap > *:first-child {
+  margin-left: 1rem;
+}
+
+.friend-stories-container__nav {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 3;
+  cursor: pointer;
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.friend-stories-container__nav, .friend-stories-container__nav:active, .friend-stories-container__nav:hover, .friend-stories-container__nav:active {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.friend-stories-container__nav .iconify {
+  background: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+  -webkit-box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13);
+          box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13);
+}
+
+.friend-stories-container__nav .iconify path {
+  fill: #dbdbdb;
+}
+
+.friend-stories-container__nav--left {
+  left: 0;
+}
+
+.friend-stories-container__nav--right {
+  right: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #FAFAFA;
+}
+/*# sourceMappingURL=main.css.map */

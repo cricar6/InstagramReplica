@@ -1,0 +1,111 @@
+@import 'variables';
+
+@mixin user-photo($width: toRem(56px), $height: toRem(56px)) {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    img {
+        width: $width;
+        height: $height;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+        border: {
+            color: white;
+            width: 2px;
+            style: solid;
+        }
+    }
+    &--enabled {
+        border-radius: 50%;
+        background: $main-gradient; /*How to extend close from enabled*/
+    }
+    &--close {
+        border-radius: 50%;
+        background: $insta-green;
+    }
+}
+
+@mixin regular-text($fontSize: toRem(14px), $fontWeight: 600) {
+    font-family: $main-font;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin reset-button {
+    &,
+    &:active,
+    &:hover,
+    &:active {
+        background: none;
+        outline: none;
+        border: none;
+    }
+    
+}
+.story-toogler {
+   &__user {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        &-photo {
+                @include user-photo();
+        }
+        &-name {
+                @include regular-text(toRem(12px), 400);
+                color: $insta-black;
+        }
+   }
+}
+
+.friend-stories-container {
+    padding: toRem(16px) 0;
+    background: white;
+    position: relative;
+    border: {
+        width: 1px;
+        color: $insta-medium-gray;
+        style: solid;
+    }
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        > *:not(:last-child) {
+            margin-right: toRem(10px);
+        }
+        > *:first-child {
+            margin-left: toRem(16px);
+        }
+    }
+    &__nav {
+        @include reset-button();
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        cursor: pointer;
+        width: toRem(50px);
+        height: toRem(50px);
+        .iconify {
+            background: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            padding: 3px;
+            box-shadow: $shadow-level-1;
+
+            path {
+                fill: $insta-medium-gray;
+            }
+        }
+        &--left {
+            left: 0 ;
+        }
+        &--right {
+            right: 0 ;
+        }
+    }
+}
