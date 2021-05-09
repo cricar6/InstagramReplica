@@ -1,0 +1,43 @@
+@media (max-width: 980px) {
+    .header {
+        padding: {
+            left: 20px;
+            right: 20px;
+        }
+    }
+    .outer-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: unset;
+        justify-content: center;
+    }
+    .user-account-related-info {
+        position: relative;
+        padding-top: 0;
+        max-width: unset;
+        > *:not(.footer) {
+            display: none;
+        }
+    }
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 50px;
+        padding: 0 20px;
+        &__link-wrap {
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .search-bar {
+        display: none;
+    }
+    .feed {
+        width: 90vw;
+    }
+    
+}

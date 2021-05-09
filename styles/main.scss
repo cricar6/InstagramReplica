@@ -1,4 +1,4 @@
-@import 'colors', 'responsive', 'components', 'variables';
+@import 'colors', 'components', 'variables';
 
 * {
     padding: 0;
@@ -31,11 +31,12 @@ body {
 
 .user-account-related-info {
 
-    position: fixed;
+    position: absolute;
     top: 0;
-    right: toRem(100px);
+    right: 0;
     max-width: toRem(300px);
     padding-top: $main-padding-top;
 
 }
 
+@import 'responsive';
